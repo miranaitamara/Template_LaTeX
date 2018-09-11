@@ -1,0 +1,16 @@
+\nnsection{Introduction}
+\label{sec:introduction}
+
+\vskip 1cm
+Les systèmes dynamiques sont des modèles mathématiques dans lesquels l'état d'un système à un instant donné est représenté par un vecteur de variables, avec une règle fixe déterminant l'évolution de ces variables dans le temps. Les systèmes dynamiques linéaires continus sont régis par une équation différentielle linéaire multivariée, tandis que les systèmes dynamiques linéaires en temps discret sont régis par une transformation linéaire. Dans les deux cas, compte tenu des valeurs initiales des variables, la règle détermine de manière unique l'évolution du système dans le temps.\\
+
+Des exemples particuliers de tels systèmes ont été étudiés depuis des décennies dans divers domaines de la science et de l'ingénierie, souvent par des simulations ou en termes de comportement à long terme: existence et unicité des attracteurs, points fixes, points périodiques, sensibilité aux conditions initiales, etc. Du point de vue de l'informatique, il est quelque peu surprenant de noter la relative rareté de la littérature sur les problèmes de décision concernant les systèmes dynamiques linéaires, par exemple si un point fixe ou une région particulière sera réellement atteinte en temps fini, qu'une variable Ces questions, à leur tour, ont de nombreuses applications dans un large éventail de domaines scientifiques, tels que la biologie théorique (analysis of L-systems, population dynamics), la microéconomie (stability of supply and demand equilibria in cyclical markets), vérification logicielle (termination of linear programs), vérification de modèle probabiliste (reachability and approximation in Markov chains, stochastic logics), l'informatique quantique (threshold problems for quantum automata), ainsi que la combinatoire, les langages formels, la physique statistique, etc. Généralement la principale difficulté qu'est souvent la plus rencontrée,  est comment faire pour automatiser un processus de vérification c’est-à-dire définir une méthode implémentable pour prouver qu’une propriété est vraie sur un système dynamique. \\
+
+
+L'accent est particulièrement placé sur la théorie de Lyapunov pour l'automatisation de la vérification de systèmes dynamiques \`a temps discret.Ainsi, après avoir présenté le contexte général et le problèmes d'optimisation particuliers qui leur sont liés, nous montrons comment à l'aide d'une fonction de Lyapunov pour le calcul des invariants peut-on décider si une propriété est vrai ou fausse, aussi comment elle   
+est synthétisée comme solution de problèmes d'optimisation semi-définie.\\
+
+
+Ce projet a pour objet d'évaluer aussi l'apport de la programmation semi-définie positive (SDP), méthode prometteuse de l'optimisation conique, pour la résolution pratique des problèmes classiques d'optimisation rencontrés.Le projet a pour ambition d'évaluer ce qu'une méthode alternative comme la SDP pourrait apporter quant à la résolution de ces problèmes en général, avec une attention particulière portée aux problèmes d'optimisation quadratiques et leur variante semi-définie.Le travail a consisté à identifier le problème concerné par notre démarche, \`a le discrétiser de façon appropriée et \`a expérimenter les résultats trouver basant sur le code C pour la résolution des exemples proposés. 
+
+

@@ -1,0 +1,115 @@
+
+
+\subsection{Description de l'implémentation}
+
+Prenons $\Ddot{x}=-x$ comme oscillateur harmonique modèle, et qui sera écrit comme deux équations différentielles du premier ordre
+  \begin{equation}
+    \Dot{x}=p
+  \end{equation}
+
+\begin{equation}
+    \Dot{p}=-x
+\end{equation}
+
+Nous allons intégrer numériquement ces équations par la méthode d'Euler avec conditions initiales ${\left[ 0,1 \right]}^2$ et un pas de temps $h=0,02$ 
+
+
+
+La formule pour avancer dans le temps les équations différentielles (41) et (42) sont:
+\begin{equation}
+   x_{k+1}= x_{k} + hp_{k}   \;\;\;\;\; \;\;   p_{k+1}= p_{k} - hx_{k} 
+\end{equation}
+
+On peut écrire la formule utilisée dans ce document pour avancer d'un pas dans la notation matricielle comme
+ \begin{equation}
+   \left(
+  \begin{array}{rrrrrrr}
+     x_{k+1}    \\ 
+       P_{k+1} \\ 
+    
+    \end{array}
+    \right) =\left(
+    \begin{array}{rrrrrrr}
+      c & d    \\ 
+      -d & c   \\ 
+    
+      \end{array}
+       \right) \;\left(
+    \begin{array}{rrrrrrr}
+      x_{k}   \\ 
+      p_{k}   \\ 
+    
+      \end{array}
+       \right)
+\end{equation}
+
+où c et d sont des constantes différentes pour les différents schémas numériques, pour $h \rightarrow{0}$,  $c \rightarrow{1}$ et $d \rightarrow{h}$
+
+
+
+\subsection{Discussion}
+  Dans cet exemple deux propriétés sont intéressantes à vérifier:
+  \begin{itemize}
+      \itemperso{} les valeurs de sorties sont inférieures à 1?
+      \itemperso{} sont elle bornées ?
+  \end{itemize}
+  
+  
+  
+  
+\subsection{Résultats}
+
+
+\begin{itemize}
+    \itemperso{Recherche de la valeur $Max$ de $x_{k}$} 
+    
+    prenons $Q= \begin{pmatrix} 
+  1 & 0 \\
+   0 & 0 
+\end{pmatrix}$ et pour un vecteur 
+ $\begin{pmatrix} 
+  1 \\
+   1  
+\end{pmatrix}$, la valeur de $K$ sera égal à 221, $K_{1}$ sera égal à 113 
+        
+   Le $ Max = 1,219 $ à $k=48$, de ce fait la propriété $x_{k} \leq 1$ n'est pas vérifiée.
+    
+    
+     \itemperso{Recherche de la valeur $Max$ de $v_{k}$}
+     
+       prenons $Q= \begin{pmatrix} 
+  0 & 0 \\
+   0 & 1 
+\end{pmatrix}$ et pour un vecteur 
+ $\begin{pmatrix} 
+  1 \\
+   1  
+\end{pmatrix}$, la valeur de $K$ sera égal à 221, $K_{1}$ sera égal à $185 $ 
+        
+   Le $ Max = 1 $ à $k=0$.
+     
+     
+      \itemperso{Pour la borne}
+      
+       prenons $Q= \begin{pmatrix} 
+  1 & 0 \\
+   0 & 1 
+\end{pmatrix}$ et pour un vecteur 
+ $\begin{pmatrix} 
+  1 \\
+   1  
+\end{pmatrix}$, la valeur de $K$ sera égal à 132, $K_{1}$ sera égal à 132  
+        
+   Le $ Max = 1,79 $ à $k=0$.
+      
+\end{itemize}
+
+
+
+
+
+
+
+
+
+

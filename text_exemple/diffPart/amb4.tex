@@ -1,0 +1,49 @@
+\subsection{Formulation du problème}
+Les travaux de recherche pr\'esent\'es dans ce m\'emoire se focalisent principalement sur un probl\`eme d’optimisation qu'on veut r\'esoudre et calculer d’une mani\`ere exacte (sans pour autant utiliser une sur-approximation).\\
+
+
+ Effectivement on a $ \forall \; k  \in \mathbb{N}$, $\forall \; x \in X^{in}$ et à partir de (1.2)  
+\begin{equation} 
+  x^{T}A^{kT} Q A^{k}x \ll \alpha? \iff \underset{k \in \mathbb{N}}{\sup} \; \underset{x \in X^{in}}{\sup} x^{T} A^{kT} Q A^{k} x \ll \alpha?  
+\end{equation} 
+On peut toujours trouver $\gamma$ tel que 
+
+\begin{equation}
+\underset{k \in \mathbb{N}}{\sup} \; \underset{x \in X^{in}}{\sup} x^{T} A^{kT} Q A^{k} x \ll \gamma
+\end{equation}
+avec $\gamma$ est calcul\'e par un probl\`eme d'optimisation semi-d\'efinie.
+
+
+Cependant, ce probl\`eme n\'ecessite un nombre infini de calculs et cela veut dire pour tout $k \in \mathbb{N}$, nous devons r\'esoudre exactement un probl\`eme qui est NP-difficile, et pour pouvoir le r\'esoudre, il suffit de discr\'etiser finement le probl\`eme pour $X^{in}$, ainsi pour $k \in \mathbb{N}$.
+
+\subsection{Discr\'etisation du probl\`eme}
+
+\subParagraphe{ Les besoins et les contraintes }
+\vskip .5cm
+
+Apr\`es le calcule de (1.2) par calcul it\'eratif, supposons maintenant $Q \succeq 0$ (car si on prend $Q \succ 0$, la limite tend vers l'infini et $ \{A^{k}x, k \in \mathbb{N}\}$ sera bornée), le probl\`eme est de calculer $K$ tel que: 
+
+\begin{equation}
+\underset{k \in \mathbb{N}}{\sup} \; \underset{x \in X^{in}}{\sup} x^{T} A^{kT} Q A^{k} x = \underset{k \in [K]}{\sup} \; \underset{x \in X^{in}}{\sup} x^{T} A^{kT} Q A^{k} x
+\end{equation} 
+
+Aussi, comme 
+
+\begin{equation}
+ \underset{x \in X^{in}}{\sup} x^{T} A^{kT} Q A^{k} x = \underset{x \in \mathcal{E} (X^{in})}{\sup} x^{T} A^{kT} Q A^{k} x
+\end{equation} 
+
+Alors, si $Q \succeq 0$ cela veut dire que $x \in \mathcal{E} (X^{in})$ fini car $X^{in}$ est un polytope, aussi d'apr\`es le lemme ci-dessous sur la notion de \textit{point extrémal},  bien entendu quand on maximise une fonction convexe sur un convexe compacte (polytope), c'est \'equivalent a maximiser cette fonction uniquement sur les points extr\'emaux. \\
+
+$\lemme$  \textit{soit  $f: \reels^{d} \to \reels$ est convexe et continue sur un ensemble compact $U$ dans un espace de dimension finie $L$. Il résulte que
+ $$\underset{x \in U} {\sup} \;f(x) \leq \underset{x \in \mathcal{E}(U)} {\sup} \; f(x)$$
+où $\mathcal{E}(U)$ est l'ensemble des points extrêmes de $U$.} \\
+
+
+De l'autre coté, comme $A^{k}$ tends vers la matrice nulle en l'infini, c'est équivalent à dire le rayon spectral de la matrice $A$ est strictement inférieur à 1.
+
+
+
+
+
+

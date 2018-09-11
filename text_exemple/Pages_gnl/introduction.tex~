@@ -1,0 +1,27 @@
+\nnsection{Introduction}
+\label{sec:introduction}
+Ce rapport détaille l'ensemble de nos travaux réalisés pour le module de Système de Gestion de Base de données. Le projet utilisé pour manipuler les concepts vus en cours est celui relatif à la téléphonie, qui vous est rappelé dans la première partie de ce document.
+
+Afin de présenter notre travail, nous vous précisons dans un premier temps le contexte général d'étude. Ensuite, nous nous intéresserons plus en détail à l'élaboration de la base de données, en montrant en particulier le passage du modèle entité-association à celui des tables utilisées dans la pratique.
+
+Dans un troisième temps, nous détaillerons les fonctionnalités mises en place dans la plateforme et expliquerons le fonctionnement de cette dernière. Enfin, nous préciserons les réalisations techniques principales, que ce soit concernant la base de données, l'architecture de l'application ou encore la génération automatique de PDF.
+
+Enfin, avant de conclure sur ce travail nous préciserons quelques axes d'amélioration possibles pour cette application, mais qui n'ont pas pu être réalisés, car plus gourmands en temps.
+\vspace*{.5cm}
+
+En cas de questions sur le contenu de ce rapport, le code ou l'installation de notre application, n'hésitez pas à nous contecter aux adresses suivantes :
+\begin{center}
+\texttt{damien.douteaux@ecl13.ec-lyon.fr}\hspace{2cm}\texttt{valentin.demeusy@ecl13.ec-lyon.fr}
+\end{center}
+De plus, vous pourrez retrouver l'intégralité de notre code et ce rapport sur le répertoire GitHub suivant:
+\begin{center}
+  \texttt{https://github.com/stity/projet\_sql}
+\end{center}
+
+\vspace*{2cm}
+\noindent\thColor{\textbf{Remarque importante : }Ce rapport constitue la version définitive de celui qui vous a été remis dans la première archive. En particulier, la procédure d'installation, les aspects techniques et les schéma Entité-Relation et de base de données ont été fortement mis à jour.}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../Rapport_BDD"
+%%% End:

@@ -1,0 +1,156 @@
+\subsection{Élaboration de k}
+
+\subParagraphe{ Appel de fonction de Lyapunov}
+\vskip .5cm
+En fait rayon spectrale de la matrice $A$ $<1$ équivaut a l'existence d 'une norme matricielle telle que $\norm{A} < 1$. Le fait que $A$ est une norme matricielle on a aussi $\norm{A^{k}} \leq \norm{A}^{k}$ qui tend vers 0.
+% * <assale.adje@gmail.com> 2018-07-27T11:48:45.979Z:
+% 
+% "et donc norm(A^k)<norm(A)^k" doit etre placée dans une phrase à part. Ce n'est pas une conséquence de norm(A)<1 mais juste du fait que c'est un norme matricielle. 
+% 
+% ^.
+ 
+ Soit $P \succ 0$ et $P-A^{T}PA \succ 0$.
+ Comme $\norm{x}_{p} = \sqrt{x^{T}Px}$ définit une norme sur $\reels^{d}$
+ alors
+ \begin{equation}
+  \norm{A}^{2}_{p} = \underset{x \in \reels^{d} \backslash {0} } \sup \frac{\norm{Ax}^{2}_{p}}{\norm{x}^{2}_{p} } =\underset{x \in \reels^{d} \backslash {0} } \sup \frac{x^{T}A^{T}PAx}{x^{T}Px}.
+ \end{equation}
+ sera la matrice norme.
+ 
+ 
+  On définit pour $P\succeq 0$, $M= \underset{x \in \mathcal{E}(X^{in})}\sup x^{T}Px$, $L= \underset{x \in \mathcal{E}(X^{in})}\sup x^{T}Qx$
+
+ \vskip .6cm
+ 
+ $ \textbf{Proposition} $ \; \; \; \textit{$ L \lambda_{max}(Q)  \lambda_{min}(P)^{-1} M^{-1}$  et $0 < \norm{A}_p < 1$ } 
+ \vskip .6cm
+ 
+ $ \textbf{Preuve} $ \; \; \; \textit{pour les matrices symétriques $B, C$:}
+ \vskip .2cm
+  \textit{$  \; \; \;  \lambda_{k}(B)+ \lambda_{min}(C) \leq \lambda_{k}(B+C) \leq \lambda_{k}(B)+\lambda_{max}(C) $ et  $\rho(A)\leq \norm{A}_p$} \textit{d'après les Inégalités de Weyls }
+ 
+ 
+
+
+
+
+\vskip .2cm
+\subParagraphe{ La norme $\norm{A}_{p}$}
+ \begin{equation}
+\begin{array}{rrcl}
+  & \norm{A}^{2}_{p}  & = &  \underset{x \in \reels^{d} \backslash {0} } \sup \frac{x^{T}A^{T}PAx}{x^{T}Px}    \\
+  
+     &  &  = &  \inf \{ t \geq 0 \; / \; \frac{x^{T}A^{T}PAx}{x^{T}Px} \leq t , \forall x \neq 0 \} \\
+     
+       &  &  = &   \inf \{ t \geq 0 \; / \; tx^{T}Px \geq x^{T}A^{T}PAx , \forall x \neq 0 \}   \\
+       
+         &  &  = &   \inf \{ t \geq 0 \; / \;  x^{T} (tP-A^{T}PA)x \geq  0, \forall x \neq 0 \}     \\
+         
+          &  &  = &   \inf \{ t \geq 0 \; / \;  tP-A^{T}PA \geq 0 \} \; < 1     \\
+                   
+\end{array}
+\end{equation}
+
+Ensuite
+\begin{equation}
+\left \{ \begin{array}{rrcl}
+\min  & \lambda_{max} (P) & & \\
+      & P-A^{T}PA-\varepsilon Id & \succeq & 0 \\
+      & P                   & \succ & 0 \\
+\end{array} \right.
+\end{equation}
+
+Tel que le PO a suggéré de résoudre le SDP en utilisant CSDP est le suivant  
+
+\begin{equation}
+  \left \{ \begin{array}{rrcl}
+ \min  &  t & & \\
+ & tId-P & \succeq & 0 \\
+
+      & P-A^{T}PA-\varepsilon Id & \succeq & 0 \\
+      & P                   & \succ & 0 \\
+\end{array} \right.
+\end{equation}
+
+
+\vskip .5cm
+\subParagraphe{Version1}
+
+\vskip .5cm
+Soit $P$ une solution discrète de Lyapunov et $k \in \mathbb{N}$, $x \in \mathcal{E}(X^{in})$.
+
+\begin{equation}
+\begin{array}{rrcl}
+  & x^{T} A^{kT} Q A^{k} x   & \leq  &   \lambda_{max}(Q) \norm{A^{k}x }^{2}_{2}  \;\;\; \rightarrow \; Quotient\; de \; Rayleigh  \\
+  
+     &  &  \leq &  \lambda_{max}(Q) \norm{A^{k}x }^{2}_{p} \lambda_{min}(P)^{-1} \\
+     
+       &  &  \leq &  \lambda_{max} (Q) \lambda_{min}(P)^{-1} \norm{A^{k} }^{2}_{p}  \norm{x }^{2}_{p}  \;\;\; \rightarrow \; norme\; subordonnee   \\
+       
+         &  &  \leq &  \lambda_{max} (Q) \lambda_{min}(P)^{-1} \norm{A}^{2k}_{p}  M  \;\;\; \rightarrow \; norme\; matricielle    \\
+           
+\end{array}
+\end{equation}
+
+
+comme $\norm{A}^{2}_{p} < 1$ cela veut dire $\ln \norm{A}^{2}_{p} < 0$
+
+
+On cherche $k$ tel que 
+
+\begin{equation}
+\begin{array}{rrcl}
+  & \norm{A}^{2k}_{p} \lambda_{max}(Q)\lambda_{min}(P)^{-1} M  & \leq  &   L = \underset{x \in \mathcal{E}(X^{in})} \sup x^{T}Qx \\
+  
+     & \norm{A}^{2k}_{p} &  \leq & L  \lambda_{min}(P)  \lambda_{max}(Q)^{-1} M^{-1} \\
+     
+   
+       
+         & k \ln \norm{A}^{2}_{p} &  \leq &  \ln (L \lambda_{min}(P) \lambda_{max}(Q)^{-1} M^{-1})    \\
+         
+         
+             & K &  \geq & E \Big ( \frac{ \ln (L \lambda_{min}(P) \lambda_{max}(Q)^{-1} M^{-1})}{\ln \norm{A}^{2}_{p}} \Big ) +1\\
+           
+\end{array}
+\end{equation}
+
+\newpage
+\subParagraphe{Version2}
+
+\vskip .5cm
+On cherche une fonction $P$ telle que 
+
+\begin{equation}
+  \left \{ \begin{array}{rrcl}
+ \min  &  \lambda_{\max}(P) & & \\
+ & \lambda_{\max}(Q)P-Q & \succeq & 0 \\
+
+      & P-A^{T}PA & \succeq & 0 \\
+      & P                   & \succ & 0 \\
+\end{array} \right.
+\end{equation}
+
+\begin{equation}
+\begin{array}{rrcl}
+  & x^{T} A^{kT} Q A^{k} x   & \leq  &   \lambda_{max}(Q)\;\; x^{T} A^{kT} P A^{k} x \\
+  
+     &  &  \leq &  \lambda_{max}(Q) \norm{A^{k}x }^{2}_{p} \\
+         
+    
+                & k &  \geq & E \Big ( \frac{ \ln (L \lambda_{max}(Q)^{-1} M^{-1})}{\ln \norm{A}^{2}_{p}} \Big ) +1\\
+         
+                 & K_{1} &  \geq & E \Big ( \frac{ \ln (L \lambda_{max}(P^{-1/2}QP^{-1/2})^{-1} M^{-1})}{\ln \norm{A}^{2}_{p}}\Big ) +1  \;\;\; \rightarrow \;En \; utilisant \; le \;Quotient\; de \; Rayleigh \\        
+         
+         
+         
+\end{array}
+\end{equation}
+
+
+
+
+
+
+
+
+
